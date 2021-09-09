@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercício 4</title>
+  </head>
+  <body>
+    <script>
+      const nomesAlunos = [
+        "João",
+        "Maria",
+        "Lucas",
+        "Matheus",
+        "Marly",
+        "Josué",
+        "Julia",
+        "Amanda",
+        "Francisco",
+        "Fernanda",
+      ];
+
+      const alunos = [];
+      for (let i = 0; i < 10; i++) {
+        const notas = [];
+        for (let j = 0; j < 4; j++) {
+          let nota = +(Math.random() * 11).toFixed(2);
+          if (nota < 7.5) {
+            nota += 2.5;
+          }
+          notas.push(nota);
+        }
+        alunos.push({ nome: nomesAlunos[i], notas: notas });
+      }
+
+      console.log(alunos);
+
+      alunos.forEach((aluno) => {
+        let media = 0;
+        aluno.notas.forEach((nota) => {
+          media += nota;
+        });
+        aluno.media = +(media / aluno.notas.length).toFixed(2);
+
+        if (aluno.media >= 7.5) {
+          aluno.situacao = "APROVADO";
+        } else {
+          aluno.situacao = "REPROVADO";
+        }
+        alert(
+          `Nome: ${aluno.nome}\nMédia: ${aluno.media}\nSituação: ${aluno.situacao}`
+        );
+      });
+    </script>
+  </body>
+</html>

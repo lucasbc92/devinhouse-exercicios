@@ -1,0 +1,285 @@
+/*** REGRAS GERAIS ***/
+
+.facebook-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f0f0;
+}
+/*prettier-ignore*/
+p, h5, h6 {
+  margin: 0;
+}
+/*prettier-ignore*/
+p, h5 {
+  color: #84858a;
+}
+hr {
+  width: 90%;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+/*** CABEÇALHO ***/
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+}
+input[type="text"] {
+  border: 0;
+  border-radius: 50px;
+  background-color: #f0f0f0;
+  padding: 1rem;
+  width: 90%;
+}
+.btn-toolbar-left,
+.btn-toolbar-center,
+.btn-toolbar-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-toolbar-center div {
+  margin: 0 0.5rem;
+  border-radius: 50%;
+}
+.btn-toolbar-center div a {
+  padding: 1rem 2rem;
+  text-decoration: none;
+}
+.btn-toolbar-center div a:hover,
+.btn-toolbar-right div:hover {
+  background: #f0f0f0;
+}
+.btn-toolbar-right div {
+  padding: 1rem;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+.img-profile {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+/*** CONTEÚDO PRINCIPAL ***/
+
+main {
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+}
+
+/*** BARRA LATERALL ESQUERDA ***/
+
+.left-sidebar {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+/*prettier-ignore*/
+.left-sidebar div, .contacts-list div {
+  cursor: pointer;
+}
+.left-sidebar div {
+  padding: 0.5rem 2rem;
+}
+.left-sidebar h5 {
+  margin: 0.5rem;
+  padding: 0 0.5rem 0 0.5rem;
+}
+.img-group {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 5px;
+}
+
+/*** FEED CENTRAL ***/
+
+.feed {
+  padding: 0 1rem;
+  width: 50%;
+}
+
+.stories {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.stories div a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.my-story,
+.story {
+  width: 100px;
+  border-radius: 8px;
+  background-color: white;
+}
+.my-story a img,
+.story a img {
+  width: 100px;
+  border-radius: 8px;
+}
+.my-story a div {
+  background-color: #166ada;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 50%;
+  margin-top: -1rem;
+}
+/*prettier-ignore*/
+.my-story a p, .story a p {
+  font-weight: bold;
+}
+.my-story a p {
+  color: black;
+}
+.story a p {
+  margin-top: -80px;
+  color: white;
+  padding: 0.5rem 0.5rem 0 0.5rem;
+}
+.stories-more {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-top: 65px;
+  margin-left: -25px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.create-post {
+  padding: 1rem;
+  background-color: white;
+  margin-top: 1rem;
+  border-radius: 8px;
+}
+
+.create-post-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.create-post-buttons div {
+  padding: 0.5rem 2rem;
+}
+
+.red {
+  color: #e42645;
+}
+
+.green {
+  color: #41b35d;
+}
+
+.yellow {
+  color: #eab026;
+}
+
+.gray {
+  color: #84858a;
+}
+
+.post {
+  padding: 1rem;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.post-author {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.author-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.author-info div p {
+  color: black;
+  font-weight: bold;
+}
+
+.post-content p {
+  color: black;
+}
+
+.post-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.post-reactions img {
+  height: 1rem;
+  width: 1rem;
+}
+
+.post-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/*** BARRA LATERAL DIREITA ***/
+
+.right-sidebar {
+  width: 300px;
+}
+.sponsored h5 {
+  margin: 0.5rem;
+  padding: 1.25rem 0.5rem 0 0.5rem;
+}
+/*prettier-ignore*/
+.propaganda, .contacts-header {
+  padding: 0.5rem;
+  margin: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+.propaganda {
+  cursor: pointer;
+}
+.propaganda img {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  margin-right: 0.5rem;
+}
+.contacts-header {
+  justify-content: space-between;
+}
+.contacts-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0.5rem;
+}
+.contacts-buttons div i {
+  color: #84858a;
+}
+.contacts-list div {
+  margin: 0 0.5rem;
+  padding: 0.5rem 0;
+}

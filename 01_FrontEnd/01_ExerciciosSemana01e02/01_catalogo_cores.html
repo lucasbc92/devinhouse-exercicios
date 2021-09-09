@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+    <style>
+      #div-preto {
+        background-color: black;
+        color: white;
+        padding: 20px 0;
+        width: 50%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      #div-branco {
+        background-color: white;
+        color: black;
+        padding: 20px 0;
+        width: 50%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .floresta-amazonica {
+        background-color: rgb(3, 102, 79);
+        padding: 40px 0;
+      }
+      .verde-trevo {
+        background-color: #19563e;
+        padding: 40px 0;
+      }
+      .esmeralda-intensa {
+        background-color: rgb(31, 86, 76);
+        padding: 40px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 style="text-align: center">Catálogo de Cores</h1>
+    </header>
+    <main>
+    <div id="div-preto">
+        <h2>Testes com o fundo PRETO</h2>      
+        <table>
+            <thead>
+            <tr>
+                <th style="width: 30%">Nome da cor</th>
+                <th style="width: 60%">Exemplo</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Floresta Amazônica</td>
+                <td style="border: 20px solid black" class="floresta-amazonica"></td>
+            </tr>
+            <tr>
+                <td>Verde Trevo</td>
+                <td style="border: 20px solid black" class="verde-trevo"></td>
+            </tr>
+            <tr>
+                <td>Esmeralda Intensa</td>
+                <td style="border: 20px solid black" class="esmeralda-intensa"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="div-branco">
+      <h2>Testes com o fundo BRANCO</h2>
+        <table>
+          <thead>
+            <tr>
+            <tr>
+              <th style="width: 30%">Nome da cor</th>
+              <th style="width: 60%">Exemplo</th>
+            </tr>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Floresta Amazônica</td>
+              <td style="border: 20px solid white" class="floresta-amazonica"></td>
+            </tr>
+            <tr>
+              <td>Verde Trevo</td>
+              <td style="border: 20px solid white" class="verde-trevo"></td>
+            </tr>
+            <tr>
+              <td>Esmeralda Intensa</td>
+              <td style="border: 20px solid white" class="esmeralda-intensa"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+</html>

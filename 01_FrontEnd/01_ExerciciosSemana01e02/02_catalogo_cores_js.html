@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercício 2</title>
+    <style>
+      #titulo {
+        text-align: center;
+      }
+      .subtitulo,
+      th {
+        color: red;
+      }
+      #parede {
+        padding: 20px 0;
+        width: 50%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      #textoCorParede {
+        text-transform: uppercase;
+      }
+      #tdCorTinta {
+        padding: 40px 0;
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 id="titulo">Catálogo de Cores</h1>
+    </header>
+    <main>
+      <div id="parede">
+        <h2 class="subtitulo">
+          Testes com o fundo <span id="textoCorParede">Branco</span>
+        </h2>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 25%">Cor da Parede</th>
+              <th style="width: 25%">Cor da Tinta</th>
+              <th style="width: 50%">Exemplo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <select
+                  name="corParede"
+                  id="corParede"
+                  onchange="trocarCorParede()"
+                >
+                  <option value="white" selected>Branco</option>
+                  <option value="gray">Cinza</option>
+                  <option value="black">Preto</option>
+                </select>
+              </td>
+              <td>
+                <select
+                  name="corTinta"
+                  id="corTinta"
+                  onchange="trocarCorTinta()"
+                >
+                  <option value="white" selected>Branco</option>
+                  <option value="rgb(3, 102, 79)">Floresta Amazônica</option>
+                  <option value="#19563e">Verde Trevo</option>
+                  <option value="rgb(31, 86, 76)">Esmeralda Intensa</option>
+                </select>
+              </td>
+              <td id="tdCorTinta"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+    <script>
+      function trocarCorParede() {
+        const e = document.getElementById("corParede");
+        const valCor = e.value;
+        const textCor = e.options[e.selectedIndex].text;
+        document.getElementById("parede").style.backgroundColor = valCor;
+        document.getElementById("textoCorParede").innerText = textCor;
+      }
+
+      function trocarCorTinta() {
+        const e = document.getElementById("corTinta");
+        const valCor = e.value;
+        document.getElementById("tdCorTinta").style.backgroundColor = valCor;
+      }
+    </script>
+  </body>
+</html>
