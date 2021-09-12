@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Exercícios S03</title>
+</head>
+<body>
+    <div>
+        <div id="e07e08e09">
+            <h2>E07, E08, E09</h2>
+            <label for="marketItem">Item a adicionar</label>
+            <input type="text" id="marketItem" name="marketItem" placeholder="Nome do item">
+            <button onclick="addItem()">Adicionar</button>
+            <select name="itemList" id="itemList"></select>
+            <button onclick="saveItems()">Salvar lista</button>
+            <button onclick="retrieveItems()">Carregar lista</button>
+        </div>
+        <div id="e10">
+            <h2>E10</h2>
+            <label for="initialValue">Valor Inicial</label>
+            <input type="number" id="initialValue" name="initialValue" value="0">
+            <label for="root">Raiz</label>
+            <input type="number" id="root" name="root">
+            <textarea rows="5"></textarea>
+            <button id="buttonPA" onclick="calculateProgression('P.A')">Calcular P.A</button>
+            <button id="buttonPG" onclick="calculateProgression('P.G')">Calcular P.G</button>
+        </div>
+    </div>
+    <script src="07_08_09.js"></script>
+    <script src="10.js"></script>
+</body>
+</html>
