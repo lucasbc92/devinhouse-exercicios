@@ -24,6 +24,10 @@ textarea {
   text-align: center;
 }
 
+input::placeholder {
+  color: #f0f0f0;
+}
+
 button {
   padding: 1rem;
 }
