@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>SO3E01</title>
+  </head>
+  <body>
+    <h1>Lista de Exercícios S03</h1>
+    <main>
+      <div id="e01">
+        <h2>E01</h2>
+        <label for="birthDate">Insira sua data de nascimento:</label>
+        <input type="date" id="birthDate" name="birthDate" />
+        <button id="buttonCalculateAge">Calcular idade</button>
+        <p id="textAge"></p>
+      </div>
+      <div id="e02">
+        <h2>E02</h2>
+        <div>
+          <input type="number" id="v1" name="v1" value="0" />
+          <h3 id="textOperation"></h3>
+          <input type="number" id="v2" name="v2" value="0" />
+          <h3>=</h3>
+          <textarea readonly></textarea>
+          <button id="buttonAdd" onClick="calculate('+')">+</button>
+          <button id="buttonMinus" onClick="calculate('-')">-</button>
+          <button id="buttonTimes" onClick="calculate('*')">*</button>
+          <button id="buttonDivide" onClick="calculate('/')">/</button>
+        </div>
+      </div>
+      <div id="e03">
+        <h2>E03</h2>
+        <input type="number" onChange="checkParity()" value="0" />
+        <p></p>
+      </div>
+      <div id="e04">
+        <h2>E04</h2>
+        <h3></h3>
+      </div>
+      <div id="e05">
+        <h2>E05</h2>
+        <h3></h3>
+      </div>
+      <div id="e06">
+        <h2>E06</h2>
+        <h3></h3>
+        <img src="#" alt="Estação" />
+      </div>
+      <div id="e07">
+        <h2>E07</h2>
+        <label for="marketItem">Item a adicionar:</label>
+        <input type="text" placeholder="Nome do item" />
+        <button onClick="addItem()">Adicionar</button>
+        <select></select>
+      </div>
+      <div id="e07e08e09">
+        <h2>E07, E08, E09</h2>
+        <label for="marketItem">Item a adicionar</label>
+        <input
+          type="text"
+          id="marketItem"
+          name="marketItem"
+          placeholder="Nome do item"
+        />
+        <button onclick="addItem()">Adicionar</button>
+        <select name="itemList" id="itemList"></select>
+        <button onclick="saveItems()">Salvar lista</button>
+        <button onclick="retrieveItems()">Carregar lista</button>
+      </div>
+      <div id="e10">
+        <h2>E10</h2>
+        <label for="initialValue">Valor Inicial</label>
+        <input type="number" id="initialValue" name="initialValue" value="0" />
+        <label for="root">Raiz</label>
+        <input type="number" id="root" name="root" />
+        <textarea rows="5"></textarea>
+        <button id="buttonPA" onclick="calculateProgression('P.A')">
+          Calcular P.A
+        </button>
+        <button id="buttonPG" onclick="calculateProgression('P.G')">
+          Calcular P.G
+        </button>
+      </div>
+    </main>
+    <script src="01.js"></script>
+    <script src="02.js"></script>
+    <script src="03.js"></script>
+    <script src="04.js"></script>
+    <script src="05.js"></script>
+    <script src="06.js"></script>
+    <script src="07_08_09.js"></script>
+    <script src="10.js"></script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+body {
+  background-color: #2d3047;
+}
+
+body > div {
+  margin: 2rem 0;
+}
+
+* {
+  color: #ffdbb5;
+}
+
+h1 {
+  text-align: center;
+}
+
+input,
+button,
+select,
+textarea {
+  margin: 0 1rem;
+  border-radius: 4px;
+  background-color: #419d78;
+  text-align: center;
+}
+
+button {
+  padding: 1rem;
+}
+
+#e02 div {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+#e02 div textarea {
+  resize: none;
+}
+
+#e02 div button {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+#e06 img {
+  width: 320px;
+  height: 240px;
+}
