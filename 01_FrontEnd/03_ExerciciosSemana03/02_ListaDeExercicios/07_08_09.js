@@ -9,18 +9,13 @@ function createOption(item) {
 
 function addItem() {
   const itemElement = document.getElementById("marketItem");
-
   const item = itemElement.value;
-
-  // if(item.length === 0){
-  //     alert("Digite o nome do item.")
-  //     return;
-  // }
-
+  if (item.length === 0) {
+    alert("Digite o nome do item.");
+    return;
+  }
   createOption(item);
-
   itemElement.value = "";
-
   items.push(item);
 }
 
@@ -33,13 +28,13 @@ function saveItems() {
   alert("Lista salva com sucesso.");
 }
 
-function retrieveItems() {
-  const retrievedItems = localStorage.getItem("@s03:items");
-  if (retrievedItems === null) {
+function loadItems() {
+  const loadedItems = localStorage.getItem("@s03:items");
+  if (loadedItems === null) {
     alert("Não há itens salvos.");
     return;
   }
-  items = JSON.parse(retrievedItems);
+  items = JSON.parse(loadedItems);
   //document.querySelector("#e07e08e09 select").innerHTML = "";
   const list = document.querySelector("#e07e08e09 select");
   const options = list.options;
