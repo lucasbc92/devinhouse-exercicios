@@ -8,10 +8,10 @@ class Conta {
 
 {
   const endereco = new Endereco({
-    logradouro: "Rua Professora Rosinha Campos",
+    logradouro: "Rua Felipe Schmidt",
     numero: "427",
     cidade: "Florianópolis",
-    estado: "Santa Catarina",
+    estado: "sdasasda",
     pais: "Brasil",
     cep: "88085-160",
   });
@@ -20,11 +20,11 @@ class Conta {
     nome: "Lucas Bueno Cesario",
     cpf: "123456789012",
     endereco,
-    celular: "(48)991224064",
+    celular: "(48)987654321",
   });
 
   const conta = new Conta({
-    numero: "59221-8",
+    numero: "12345-6",
     cliente,
   });
 

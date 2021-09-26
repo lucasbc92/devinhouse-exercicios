@@ -36,7 +36,7 @@ class Transacoes {
 
 {
   const endereco = new Endereco({
-    logradouro: "Rua Professora Rosinha Campos",
+    logradouro: "Rua Felipe Schmidt",
     numero: "427",
     cidade: "Florianópolis",
     estado: "Santa Catarina",
@@ -46,17 +46,17 @@ class Transacoes {
 
   const cliente = new Cliente({
     nome: "Lucas Bueno Cesario",
-    cpf: "123456789012",
+    cpf: "11111111111",
     endereco,
     celular: "(48)991224064",
   });
 
   const conta = new Conta({
-    numero: "59221-8",
+    numero: "12345-6",
     cliente,
   });
 
-  const transacoes = new Transacoes(conta, 200, "12345-6");
+  const transacoes = new Transacoes(conta, 200, "98765-4");
   transacoes.depositar();
 
   console.log(transacoes);
