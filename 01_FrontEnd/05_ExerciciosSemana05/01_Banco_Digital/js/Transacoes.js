@@ -46,7 +46,7 @@ class Transacoes {
 
   const cliente = new Cliente({
     nome: "Lucas Bueno Cesario",
-    cpf: "123456789012",
+    cpf: "10465589642",
     endereco,
     celular: "(48)991224064",
   });

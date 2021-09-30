@@ -13,7 +13,7 @@ class Cliente {
     cpf = cpf.replaceAll(".", "");
     cpf = cpf.replaceAll("-", "");
 
-    console.log(cpf);
+    //console.log(cpf);
 
     if (cpf == "00000000000") {
       alert("CPF inválido!");
