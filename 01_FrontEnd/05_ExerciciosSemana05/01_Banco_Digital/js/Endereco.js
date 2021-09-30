@@ -49,26 +49,3 @@ class Endereco {
     }
   }
 }
-
-{
-  const endereco = new Endereco({
-    logradouro: "Rua Professora Rosinha Campos",
-    numero: "427",
-    cidade: "Florianópolis",
-    estado: "Santa Catarina",
-    pais: "Brasil",
-    cep: "88085-160",
-  });
-}
-
-{
-  const endereco = new Endereco({
-    logradouro: "Rua Professora Rosinha Campos",
-    numero: "427",
-    cidade: "Florianópolis",
-    estado: "sdsads",
-    pais: "Brasil",
-    cep: "88085-160",
-  });
-  console.log(endereco);
-}

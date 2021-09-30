@@ -5,4 +5,4 @@ class Quadrado {
 }
 
 const q = new Quadrado(4);
-console.log(q);
+//console.log(q);
