@@ -14,23 +14,25 @@ class Temporizador {
   }
 
   get #spanSegundos() {
-    return document.querySelector("#seconds");
+    return document.querySelector('#seconds');
   }
 
   iniciar() {
-    //let that = this;
-    clearInterval(this.#interval);
-    this.#interval = setInterval(() => this.#incrementar(), 10);
+    let that = this;
+    clearInterval(that.#interval);
+    this.#interval = setInterval(function () {
+      that.#incrementar();
+    }, 10);
   }
 
   parar() {
-    //let that = this;
-    clearInterval(this.#interval);
+    let that = this;
+    clearInterval(that.#interval);
   }
 
   reset() {
-    //let that = this;
-    clearInterval(this.#interval);
+    let that = this;
+    clearInterval(that.#interval);
     this.#dezenasMilissegundos = 0;
     this.#segundos = 0;
     this.#spanDezenasMilissegundos.innerHTML = "00";
@@ -41,8 +43,7 @@ class Temporizador {
     this.#dezenasMilissegundos += 1;
 
     if (this.#dezenasMilissegundos >= 9) {
-      this.#spanDezenasMilissegundos.innerHTML =
-        "0" + this.#dezenasMilissegundos;
+      this.#spanDezenasMilissegundos.innerHTML = "0" + this.#dezenasMilissegundos;
     }
 
     if (this.#dezenasMilissegundos > 9) {
@@ -55,8 +56,7 @@ class Temporizador {
 
       this.#dezenasMilissegundos = 0;
 
-      this.#spanDezenasMilissegundos.innerHTML =
-        "0" + this.#dezenasMilissegundos;
+      this.#spanDezenasMilissegundos.innerHTML = "0" + this.#dezenasMilissegundos;
     }
 
     if (this.#segundos > 9) {
@@ -65,11 +65,12 @@ class Temporizador {
   }
 }
 
+
 let temporizador = new Temporizador();
 
-var btnStart = document.querySelector("#button-start");
-var btnStop = document.querySelector("#button-stop");
-var btnReset = document.querySelector("#button-reset");
+var btnStart = document.querySelector('#button-start');
+var btnStop = document.querySelector('#button-stop');
+var btnReset = document.querySelector('#button-reset');
 
 btnStart.addEventListener("click", function () {
   temporizador.iniciar();
@@ -82,3 +83,4 @@ btnStop.addEventListener("click", function () {
 btnReset.addEventListener("click", function () {
   temporizador.reset();
 });
+
