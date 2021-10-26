@@ -1,0 +1,64 @@
+:root {
+  --color-background: #e9f3e9;
+  --color-primary-lighter: #abe5b7;
+  --color-primary-light: #8fdd9f;
+  --color-primary: #73d586;
+  --color-primary-dark: #5caa6c;
+  --color-primary-darker: #457f51;
+  --color-secondary: #00533d;
+  --color-secondary-dark: #003a2a;
+  --color-title-in-primary: #ffffff;
+  --color-text-in-primary: #c7eecf;
+  --color-text-title: #223f28;
+  --color-text-complement: f #81d993;
+  --color-text-base: #0e8e4b;
+  --color-line-in-white: #e6e6f0;
+  --color-input-background: #f8f8fc;
+  --color-button-text: #ffffff;
+  --color-box-header: #c9e4c9;
+  --color-box-footer: #fafcfa;
+
+  font-size: 60%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100vh;
+}
+
+body {
+  background: var(--color-background);
+}
+
+/* #root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+body,
+input,
+button,
+textarea {
+  font: 500 1.6rem Roboto;
+  color: var(--color-text-base);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 700px) {
+  :root {
+    font-size: 62.5%;
+  }
+}

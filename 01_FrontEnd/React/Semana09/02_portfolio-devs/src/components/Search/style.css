@@ -1,0 +1,9 @@
+.searchBar {
+  font-family: "Times New Roman", Times, serif;
+  padding: 5px;
+  background-color: #dfe0b5;
+  color: #ce7ac9;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}

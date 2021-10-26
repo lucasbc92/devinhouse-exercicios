@@ -1,0 +1,7 @@
+.table-list-container {
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  gap: 1.5rem;
+  justify-content: center;
+  margin: 1rem 0;
+}

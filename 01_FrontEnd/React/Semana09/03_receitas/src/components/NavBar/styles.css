@@ -1,0 +1,8 @@
+.navbar-container {
+  display: flex;
+  margin: 1rem 0;
+}
+
+.navbar-container a {
+  margin: 0 1rem;
+}

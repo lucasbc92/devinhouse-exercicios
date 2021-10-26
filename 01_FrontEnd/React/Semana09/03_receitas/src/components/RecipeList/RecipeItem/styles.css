@@ -1,0 +1,13 @@
+.recipe-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  width: 240px;
+}
+
+.recipe-container img {
+  width: 240px;
+  height: 160px;
+}

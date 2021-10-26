@@ -1,0 +1,16 @@
+.subheader-container {
+  border: 1px solid #c6c87b;
+  margin: 16px;
+  padding: 16px;
+}
+.subheader-title,
+.subheader-subtitle {
+  margin: 16px;
+  font-family: "Times New Roman";
+}
+.subheader-title {
+  font-size: 30px;
+}
+.subheader-subtitle {
+  font-size: 20px;
+}

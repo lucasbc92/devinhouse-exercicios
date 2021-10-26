@@ -1,0 +1,28 @@
+.info-food {
+  background: var(--color-primary-darker);
+  color: var(--color-button-text);
+  height: 4rem;
+  line-height: 4rem;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.info-calories {
+  font-size: 3rem;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+td {
+  line-height: 3rem;
+  border-bottom: 1px solid gray;
+  border-collapse: collapse;
+}
+
+.info-cell {
+  text-align: right;
+}
