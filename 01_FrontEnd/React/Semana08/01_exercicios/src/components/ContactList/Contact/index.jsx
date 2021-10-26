@@ -8,7 +8,9 @@ class Contact extends React.Component {
       <div className="contact-container">
         <div className="photo-container">
           <img className="photo" src={this.props.photo} alt={this.props.name} />
-          <div className={`circle ${this.props.status}`}></div>
+          {this.props.status && (
+            <div className={`circle ${this.props.status}`}></div>
+          )}
         </div>
         <div className="name-container">
           <strong>{this.props.name}</strong>
@@ -22,7 +24,7 @@ class Contact extends React.Component {
 Contact.propTypes = {
   photo: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  status: PropTypes.oneOf("online, busy, offline").isRequired,
+  status: PropTypes.oneOf(["online", "busy", "offline"]),
   description: PropTypes.string.isRequired,
 };
 

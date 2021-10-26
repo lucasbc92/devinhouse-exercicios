@@ -1,0 +1,21 @@
+.pokemon-container {
+  width: 150px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pokemon-sprite {
+  width: 150px;
+  height: 150px;
+}
+
+.pokemon-name {
+  text-transform: capitalize;
+}
+
+.pokemon-types {
+  text-transform: capitalize;
+}
