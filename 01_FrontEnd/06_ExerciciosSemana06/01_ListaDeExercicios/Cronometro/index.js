@@ -15,7 +15,7 @@ try {
   dados = new Dados("temporizador", temporizador);
   console.log(temporizador);
 } catch (error) {
-  console.log(error);
+  console.error(error);
 }
 
 console.log(temporizador);
