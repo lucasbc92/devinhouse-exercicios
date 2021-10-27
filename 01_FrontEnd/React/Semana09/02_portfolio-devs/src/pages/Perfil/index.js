@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../../components/Header";
+import DevItem from "../../components/DevList/DevItem";
 
 class Perfil extends React.Component {
   render() {
@@ -9,7 +10,7 @@ class Perfil extends React.Component {
         <Header title="Super Dev">
           <button onClick={this.props.onChangePage}>Início</button>
         </Header>
-        <div>Sobre</div>
+        <DevItem {...this.props.dev} />
       </>
     );
   }

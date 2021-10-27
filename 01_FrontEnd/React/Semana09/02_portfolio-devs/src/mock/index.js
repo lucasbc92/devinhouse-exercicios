@@ -15,5 +15,16 @@ createServer({
         description: "As melhores pessoas desenvolvedoras estão aqui!",
       };
     });
+
+    this.get("/expertises", () => {
+      return {
+        expertises: [
+          "React Developer",
+          "Java Developer",
+          "Vue Developer",
+          "Javascript Developer",
+        ],
+      };
+    });
   },
 });
