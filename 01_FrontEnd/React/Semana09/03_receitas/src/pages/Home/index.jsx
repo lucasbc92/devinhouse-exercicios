@@ -1,14 +1,12 @@
 import React from "react";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
+import { SearchBar } from "../../components/SearchBar";
 import { RecipeList } from "../../components/RecipeList";
-import { RECIPES } from "../../mock/data";
-//import { Link } from "react-router-dom";
+
 import logoImg from "../../assets/images/logo.jpg";
 
 import "./styles.css";
-import { SearchBar } from "../../components/SearchBar";
-//import { NavBar } from "../../components/NavBar";
 
 export class Home extends React.Component {
   constructor(props) {
@@ -33,17 +31,23 @@ export class Home extends React.Component {
   };
 
   async componentDidMount() {
-    const recipes = RECIPES.data;
+    const response = await fetch("/api/recipes");
+    const { data: recipes } = await response.json();
+    //const recipes = RECIPES.data;
     this.allRecipes = recipes;
     console.log(recipes);
-    setTimeout(
-      () =>
-        this.setState({
-          recipes,
-          isLoading: false,
-        }),
-      3000
-    );
+    this.setState({
+      recipes,
+      isLoading: false,
+    });
+    // setTimeout(
+    //   () =>
+    //     this.setState({
+    //       recipes,
+    //       isLoading: false,
+    //     }),
+    //   3000
+    // );
   }
 
   render() {
@@ -67,7 +71,10 @@ export class Home extends React.Component {
         {this.state.isLoading && "Loading..."}
         {!this.state.isLoading && (
           <main>
-            <SearchBar onChange={this.handleChange} />
+            <SearchBar
+              placeholder={"Pesquise uma receita..."}
+              onChange={this.handleChange}
+            />
             <RecipeList recipes={this.state.recipes} />
           </main>
         )}
