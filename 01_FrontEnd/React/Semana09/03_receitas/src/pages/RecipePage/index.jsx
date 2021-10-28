@@ -11,8 +11,17 @@ import "./styles.css";
 export class RecipePage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      isLiked: false,
+    };
   }
+
+  handleLike = () => {
+    this.setState({
+      isLiked: !this.state.isLiked,
+    });
+  };
+
   render() {
     return (
       <div className="container">
@@ -31,7 +40,11 @@ export class RecipePage extends React.Component {
           ></NavBar>
         </Header>
         <main>
-          <RecipeDetail {...this.props.location.state.recipe} />
+          <RecipeDetail
+            {...this.props.location.state.recipe}
+            isLiked={this.state.isLiked}
+            onPress={this.handleLike}
+          />
           <FoodInfoTableList
             foodInfos={this.props.location.state.recipe.foodInfos}
           />

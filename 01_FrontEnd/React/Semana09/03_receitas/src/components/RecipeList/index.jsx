@@ -19,8 +19,20 @@ RecipeList.propTypes = {
   recipes: PropTypes.arrayOf(
     PropTypes.shape({
       image: PropTypes.string,
-      title: PropTypes.string,
-      subtitle: PropTypes.string,
+      title: PropTypes.string.isRequired,
+      subtitle: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+      foodInfos: PropTypes.arrayOf(
+        PropTypes.shape({
+          food: PropTypes.string,
+          calories: PropTypes.number,
+          carbs: PropTypes.number,
+          proteins: PropTypes.number,
+          lipids: PropTypes.number,
+          saturatedFat: PropTypes.number,
+        })
+      ).isRequired,
+      text: PropTypes.string,
     })
   ).isRequired,
 };

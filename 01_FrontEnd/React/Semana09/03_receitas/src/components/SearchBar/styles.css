@@ -1,0 +1,11 @@
+.search-box-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+  background: var(--color-primary-lighter);
+}
+
+.search-box-container input {
+  width: 33%;
+}

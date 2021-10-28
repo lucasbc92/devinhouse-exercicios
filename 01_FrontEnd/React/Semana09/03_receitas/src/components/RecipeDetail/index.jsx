@@ -1,12 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./styles.css";
+import { LikeButton } from "../LikeButton";
 
 export class RecipeDetail extends React.Component {
   render() {
     return (
       <div className="recipe-detail-container">
-        <h2>{this.props.title}</h2>
+        <div className="recipe-detail-title-like">
+          <h2>{this.props.title}</h2>
+          <div className="recipe-detail-like">
+            <span>Gostei</span>
+            <LikeButton
+              isPressed={this.props.isLiked}
+              onPress={this.props.onPress}
+            />
+          </div>
+        </div>
+
         <img src={this.props.image} alt={this.props.title} />
         <p>{this.props.subtitle}</p>
         <p>Autor: {this.props.author}</p>

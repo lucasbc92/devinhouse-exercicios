@@ -3,12 +3,10 @@ import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { SearchBar } from "../../components/SearchBar";
 import { RecipeList } from "../../components/RecipeList";
-//import { RECIPES } from "../../mock/data";
 
 import logoImg from "../../assets/images/logo.jpg";
 
 import "./styles.css";
-
 
 export class Home extends React.Component {
   constructor(props) {
@@ -33,12 +31,9 @@ export class Home extends React.Component {
   };
 
   async componentDidMount() {
-    const recipesStream = await fetch("/api/teste");
-    console.log(recipesStream);
-    debugger;
-    const {data: recipes} = await recipesStream.json();
+    const response = await fetch("/api/recipes");
+    const { data: recipes } = await response.json();
     //const recipes = RECIPES.data;
-
     this.allRecipes = recipes;
     console.log(recipes);
     this.setState({
@@ -76,7 +71,10 @@ export class Home extends React.Component {
         {this.state.isLoading && "Loading..."}
         {!this.state.isLoading && (
           <main>
-            <SearchBar onChange={this.handleChange} />
+            <SearchBar
+              placeholder={"Pesquise uma receita..."}
+              onChange={this.handleChange}
+            />
             <RecipeList recipes={this.state.recipes} />
           </main>
         )}

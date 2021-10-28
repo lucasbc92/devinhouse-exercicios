@@ -4,6 +4,23 @@
   gap: 1rem;
 }
 
+.recipe-detail-title-like {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recipe-detail-like {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recipe-detail-like span {
+  margin-left: 3rem;
+  margin-right: 1rem;
+}
+
 .recipe-detail-container h2 {
   text-align: center;
   margin: 2rem 0;
