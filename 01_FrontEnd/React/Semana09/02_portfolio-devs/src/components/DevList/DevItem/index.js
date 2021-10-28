@@ -5,7 +5,7 @@ import "./index.css";
 class DevItem extends React.Component {
   render() {
     return (
-      <li className="devitem-container">
+      <li className="devitem-container" onClick={this.props.onSelect}>
         {this.props.photo && (
           <img
             className="devitem-photo"

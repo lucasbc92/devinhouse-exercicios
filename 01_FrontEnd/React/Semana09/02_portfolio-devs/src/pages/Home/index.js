@@ -83,8 +83,9 @@ class Home extends React.Component {
       <>
         {/* Header */}
         <Header title="DEVS">
-          <button onClick={this.props.onChangePage}>Perfil</button>
+          <button onClick={this.props.onChangePageRegister}>Criar</button>
         </Header>
+
         {/* SubHeader */}
         <SubHeader
           title={this.state.info.title}
@@ -101,6 +102,7 @@ class Home extends React.Component {
                 name={dev.name}
                 photo={dev.photo}
                 expertise={dev.expertise}
+                onSelect={(e) => this.props.onChangePagePerfil(dev)}
               />
             ))}
           </DevList>
