@@ -4,17 +4,15 @@ import { FoodInfoTable } from "./FoodInfoTable";
 
 import "./styles.css";
 
-export class FoodInfoTableList extends React.Component {
-  render() {
-    return (
-      <div className="table-list-container">
-        {this.props.foodInfos.map((info) => (
-          <FoodInfoTable key={info.food} {...info} />
-        ))}
-      </div>
-    );
-  }
-}
+export const FoodInfoTableList = (props) => {
+  return (
+    <div className="table-list-container">
+      {props.foodInfos.map((info) => (
+        <FoodInfoTable key={info.food} {...info} />
+      ))}
+    </div>
+  );
+};
 
 FoodInfoTableList.propTypes = {
   foodInfos: PropTypes.arrayOf(
@@ -26,5 +24,5 @@ FoodInfoTableList.propTypes = {
       lipids: PropTypes.number.isRequired,
       saturatedFat: PropTypes.number.isRequired,
     })
-  ).isRequired
+  ).isRequired,
 };

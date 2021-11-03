@@ -1,8 +1,9 @@
 import React from "react";
 import { Header } from "../../components/Header";
-import { Footer } from "../../components/Footer";
+import { NavBar } from "../../components/NavBar";
 import { SearchBar } from "../../components/SearchBar";
 import { RecipeList } from "../../components/RecipeList";
+import { Footer } from "../../components/Footer";
 
 import logoImg from "../../assets/images/logo.jpg";
 
@@ -32,22 +33,20 @@ export class Home extends React.Component {
 
   async componentDidMount() {
     const response = await fetch("/api/recipes");
-    const { data: recipes } = await response.json();
-    //const recipes = RECIPES.data;
-    this.allRecipes = recipes;
-    console.log(recipes);
+    const { recipes } = await response.json();
+    const mappedRecipes = recipes.map((recipe) => {
+      return {
+        id: recipe.id,
+        image: recipe.image,
+        title: recipe.title,
+        subtitle: recipe.subtitle,
+      };
+    });
+    this.allRecipes = mappedRecipes;
     this.setState({
-      recipes,
+      recipes: mappedRecipes,
       isLoading: false,
     });
-    // setTimeout(
-    //   () =>
-    //     this.setState({
-    //       recipes,
-    //       isLoading: false,
-    //     }),
-    //   3000
-    // );
   }
 
   render() {
@@ -58,14 +57,14 @@ export class Home extends React.Component {
           image={logoImg}
           subtitle={"Economize e ganhe em saúde!"}
         >
-          {/* <NavBar
+          <NavBar
             links={[
               {
-                href: "/receita",
-                title: "Receita",
+                href: "/contact",
+                title: "Fale conosco",
               },
             ]}
-          ></NavBar> */}
+          ></NavBar>
         </Header>
 
         {this.state.isLoading && "Loading..."}

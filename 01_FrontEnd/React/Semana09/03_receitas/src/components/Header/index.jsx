@@ -2,24 +2,18 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./styles.css";
 
-export class Header extends React.Component {
-  render() {
-    return (
-      <header className="header-container">
-        <div className="header-wrapper">
-          {this.props.title && <h1>{this.props.title}</h1>}
-          {this.props.image && (
-            <img src={this.props.image} alt={this.props.title} />
-          )}
-        </div>
-        {this.props.subtitle && (
-          <p className="header-subtitle">{this.props.subtitle}</p>
-        )}
-        {this.props.children}
-      </header>
-    );
-  }
-}
+export const Header = (props) => {
+  return (
+    <header className="header-container">
+      <div className="header-wrapper">
+        {props.title && <h1>{props.title}</h1>}
+        {props.image && <img src={props.image} alt={props.title} />}
+      </div>
+      {props.subtitle && <p className="header-subtitle">{props.subtitle}</p>}
+      {props.children}
+    </header>
+  );
+};
 
 Header.propTypes = {
   title: PropTypes.string,

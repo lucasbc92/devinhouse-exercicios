@@ -1,31 +1,29 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./styles.css";
+
 import { LikeButton } from "../LikeButton";
+import { FoodInfoTableList } from "../FoodInfoTableList";
 
-export class RecipeDetail extends React.Component {
-  render() {
-    return (
-      <div className="recipe-detail-container">
-        <div className="recipe-detail-title-like">
-          <h2>{this.props.title}</h2>
-          <div className="recipe-detail-like">
-            <span>Gostei</span>
-            <LikeButton
-              isPressed={this.props.isLiked}
-              onPress={this.props.onPress}
-            />
-          </div>
+export const RecipeDetail = (props) => {
+  return (
+    <div className="recipe-detail-container">
+      <div className="recipe-detail-title-like">
+        <h2>{props.title}</h2>
+        <div className="recipe-detail-like">
+          <span>Gostei</span>
+          <LikeButton isPressed={props.isLiked} onPress={props.onPress} />
         </div>
-
-        <img src={this.props.image} alt={this.props.title} />
-        <p>{this.props.subtitle}</p>
-        <p>Autor: {this.props.author}</p>
-        <p className="recipe-detail-text">{this.props.text}</p>
       </div>
-    );
-  }
-}
+
+      <img src={props.image} alt={props.title} />
+      <p>{props.subtitle}</p>
+      <p>Autor: {props.author}</p>
+      <p className="recipe-detail-text">{props.text}</p>
+      <FoodInfoTableList foodInfos={props.foodInfos} />
+    </div>
+  );
+};
 
 RecipeDetail.propTypes = {
   image: PropTypes.string,

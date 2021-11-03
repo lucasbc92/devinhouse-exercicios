@@ -3,18 +3,16 @@ import PropTypes from "prop-types";
 import "./styles.css";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 
-export class LikeButton extends React.Component {
-  render() {
-    return (
-      <div className="like-container" onClick={this.props.onPress}>
-        {this.props.isPressed && <FaHeart />}
-        {!this.props.isPressed && <FaRegHeart />}
-      </div>
-    );
-  }
-}
+export const LikeButton = (props) => {
+  return (
+    <div className="like-container" onClick={props.onPress}>
+      {props.isPressed && <FaHeart />}
+      {!props.isPressed && <FaRegHeart />}
+    </div>
+  );
+};
 
 LikeButton.propTypes = {
-  isPressed: PropTypes.bool.isRequired,
+  isPressed: PropTypes.bool,
   onPress: PropTypes.func.isRequired,
 };
