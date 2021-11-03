@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export const RecipeItem = (props) => {
   return (
     <div className="recipe-container">
-      {this.props.image && <img src={props.image} alt={props.title} />}
+      {props.image && <img src={props.image} alt={props.title} />}
       <h4>{props.title}</h4>
       <p>{props.subtitle}</p>
       <Link
