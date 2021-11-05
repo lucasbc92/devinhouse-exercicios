@@ -1,0 +1,18 @@
+.anime-container {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  gap: 1rem;
+}
+
+.anime-container img {
+  width: 150px;
+  height: 220px;
+}
+
+.anime-container p {
+  font-weight: bold;
+}

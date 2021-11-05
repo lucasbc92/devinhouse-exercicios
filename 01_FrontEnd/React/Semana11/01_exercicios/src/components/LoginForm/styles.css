@@ -1,0 +1,16 @@
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 300px;
+}
+
+.login-form-container input {
+  width: 100%;
+}
+
+.login-form-container button {
+  width: 150px;
+  text-transform: uppercase;
+}

@@ -1,0 +1,8 @@
+.search-box-container {
+  height: 4rem;
+  margin: 1rem 0;
+}
+
+.search-box-container input {
+  width: 300px;
+}

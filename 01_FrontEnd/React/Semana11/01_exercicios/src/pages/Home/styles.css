@@ -1,0 +1,7 @@
+.home-navbar {
+  display: flex;
+}
+
+.home-navbar a {
+  margin: 1rem;
+}
