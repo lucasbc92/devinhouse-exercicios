@@ -1,0 +1,46 @@
+.card-container {
+  max-width: 450px;
+  display: flex;
+  align-items: center;
+  border: 1px solid gray;
+  border-radius: 0.5rem;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+
+.card-container img {
+  max-width: 150px;
+  object-fit: contain;
+}
+
+.card-container p {
+  font-weight: bold;
+  text-align: center;
+}
+
+.card-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.card-description p {
+  color: black;
+}
+
+.card-stats .card-atk {
+  color: red;
+}
+
+.card-stats .card-def {
+  color: blue;
+}
+
+.card-stats .card-level {
+  color: green;
+}
+
+.card-stats .card-attribute {
+  color: black;
+}

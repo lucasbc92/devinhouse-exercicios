@@ -1,0 +1,16 @@
+{
+  "accounts": [
+    {
+      "name": "Lucas",
+      "birthDate": "1992-09-06",
+      "favoriteAnimal": "Dog",
+      "email": "lucas@gmail.com",
+      "password": "12345678",
+      "address": "Rua Professora Rosinha Campos, 427",
+      "city": "Florianópolis",
+      "uf": "SC",
+      "phone": "+5548991224064",
+      "id": 1
+    }
+  ]
+}

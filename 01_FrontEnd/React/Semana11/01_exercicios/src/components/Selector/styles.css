@@ -1,0 +1,16 @@
+.selector-container {
+  display: flex;
+  gap: 20px;
+  margin: 10px;
+}
+
+.option-selector {
+  border: 1px solid tomato;
+  padding: 2px;
+  border-radius: 5px;
+  color: #999;
+}
+
+.selector-container div:hover {
+  background: #ddd;
+}

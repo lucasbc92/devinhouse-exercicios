@@ -1,0 +1,17 @@
+.mega-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 300px;
+  margin-bottom: 3rem;
+}
+
+.mega-form-container input {
+  width: 100%;
+}
+
+.mega-form-container button {
+  width: 150px;
+  text-transform: uppercase;
+}
