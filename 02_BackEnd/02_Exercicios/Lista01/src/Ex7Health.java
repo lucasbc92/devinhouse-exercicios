@@ -34,11 +34,11 @@ public class Ex7Health {
             kcalConstant = -161;
         }
         for(int i = 0; i < 3; i++){
-            kcalIngestedPerDay[i] = 10*weight + 6.25*height + 5*age + 400*(i+1) + kcalConstant;
+            kcalIngestedPerDay[i] = 10*weight + 6.25*height - 5*age + 400*(i+1) + kcalConstant;
             double kcalIngestedPerMonth = kcalIngestedPerDay[i]*30;
             double kcalDay = (kcalIngestedPerMonth-kcalAbstainedToLoseWeight)/30;
             System.out.printf("You need a diet of: %.2f kcal/day if you spend %d hours doing physical exercise.%n", kcalDay, (i+1));
-        }
+        }       
         in.close();
     }
 }
