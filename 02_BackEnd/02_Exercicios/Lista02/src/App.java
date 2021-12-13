@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 import ex01.TestPerson;
+import ex02.TestInvoice;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -9,7 +10,7 @@ public class App {
         do {
             System.out.println("What exercise do you want to execute? Press '0' to exit.");
             System.out.println("1 - Person");
-            System.out.println("2 - Person");
+            System.out.println("2 - Computer Shop");
             System.out.println("3 - Person");
             System.out.println("4 - Person");
             System.out.println("5 - Person");
@@ -27,7 +28,7 @@ public class App {
                     break;
                 }
                 case 2: {
-                    TestPerson.main(null);
+                    TestInvoice.main(null);
                     break;
                 }
                 case 3: {
