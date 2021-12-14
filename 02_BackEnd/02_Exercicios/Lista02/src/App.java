@@ -1,6 +1,12 @@
 import java.util.Scanner;
 
 import ex01.TestPerson;
+import ex03.TestHeartRate;
+import ex04.TestHealthProfile;
+import ex05.TestPeopleBook;
+import ex06.TestLanguage;
+import ex07.TestStudent;
+import ex08.TestRoundScore;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -9,13 +15,13 @@ public class App {
         do {
             System.out.println("What exercise do you want to execute? Press '0' to exit.");
             System.out.println("1 - Person");
-            System.out.println("2 - Person");
-            System.out.println("3 - Person");
-            System.out.println("4 - Person");
-            System.out.println("5 - Person");
-            System.out.println("6 - Person");
-            System.out.println("7 - Person");
-            System.out.println("8 - Person");
+            System.out.println("2 - Computer Shop");
+            System.out.println("3 - Heart Rate");
+            System.out.println("4 - Health Profile");
+            System.out.println("5 - People Book");
+            System.out.println("6 - Languages");
+            System.out.println("7 - Students");
+            System.out.println("8 - Round Score");
             System.out.println("9 - Person");
             System.out.println("10 - Person");  
             option = in.nextInt();
@@ -31,27 +37,27 @@ public class App {
                     break;
                 }
                 case 3: {
-                    TestPerson.main(null);
+                    TestHeartRate.main(null);
                     break;
                 }
                 case 4: {
-                    TestPerson.main(null);
+                    TestHealthProfile.main(null);
                     break;
                 }
                 case 5: {
-                    TestPerson.main(null);
+                    TestPeopleBook.main(null);
                     break;
                 }
                 case 6: {
-                    TestPerson.main(null);
+                    TestLanguage.main(null);
                     break;
                 }
                 case 7: {
-                    TestPerson.main(null);
+                    TestStudent.main(null);
                     break;
                 }
                 case 8: {
-                    TestPerson.main(null);
+                    TestRoundScore.main(null);
                     break;
                 }
                 case 9: {
