@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 import ex01.TestPerson;
+import ex02.TestInvoice;
 import ex03.TestHeartRate;
 import ex04.TestHealthProfile;
 import ex05.TestPeopleBook;
@@ -33,7 +34,7 @@ public class App {
                     break;
                 }
                 case 2: {
-                    TestPerson.main(null);
+                    TestInvoice.main(null);
                     break;
                 }
                 case 3: {
