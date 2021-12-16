@@ -24,4 +24,8 @@ public abstract class Employee {
     }
 
     public abstract double calculateSalary(int workedDays);
+
+    public String toString(){
+        return this.getClass().getSimpleName();
+    }
 }

@@ -132,6 +132,6 @@ public class TestRoundScore {
             }
         } while(option != 0);
         System.out.println("Until next time...");
-        in.close();
+        //in.close();
     }
 }

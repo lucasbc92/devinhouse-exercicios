@@ -17,9 +17,10 @@ public class CivilEmployee extends Employee {
 
     public double calculateSalary(int workedDays){
         double salaryIncreasePercentage = this.getIncrease() * workedDays;
+        
         if(salaryIncreasePercentage > percentageLimit){
             salaryIncreasePercentage = percentageLimit;
         }
-        return this.getBaseSalary() * (workedDays/30) + this.getBaseSalary() * salaryIncreasePercentage;
+        return this.getBaseSalary() * ((double)workedDays/30) + this.getBaseSalary() * salaryIncreasePercentage;
     }
 }

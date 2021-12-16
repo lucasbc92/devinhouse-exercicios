@@ -65,6 +65,6 @@ public class TestHealthProfile {
             option = in.nextInt();
         } while(option != 0);
         System.out.println("Leaving program...");
-        in.close();
+        //in.close();
     }
 }

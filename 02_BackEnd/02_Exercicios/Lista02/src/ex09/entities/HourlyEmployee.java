@@ -15,6 +15,6 @@ public class HourlyEmployee extends Employee {
     }
 
     public double calculateSalary(int workedDays){
-        return this.getBaseSalary() * (workedDays/30) + this.getIncrease() * dailyHours * workedDays;
+        return this.getBaseSalary() * ((double)workedDays/30) + this.getIncrease() * dailyHours * workedDays;
     }
 }
