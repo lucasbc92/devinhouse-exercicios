@@ -8,6 +8,8 @@ import ex05.TestPeopleBook;
 import ex06.TestLanguage;
 import ex07.TestStudent;
 import ex08.TestRoundScore;
+import ex09.TestPayroll;
+import ex10.TestMammalCatalog;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -23,8 +25,8 @@ public class App {
             System.out.println("6 - Languages");
             System.out.println("7 - Students");
             System.out.println("8 - Round Score");
-            System.out.println("9 - Person");
-            System.out.println("10 - Person");  
+            System.out.println("9 - Payroll");
+            System.out.println("10 - Mammal Catalog");  
             option = in.nextInt();
 
             switch(option){
@@ -62,11 +64,11 @@ public class App {
                     break;
                 }
                 case 9: {
-                    TestPerson.main(null);
+                    TestPayroll.main(null);
                     break;
                 }
                 case 10: {
-                    TestPerson.main(null);
+                    TestMammalCatalog.main(null);
                     break;
                 }
                 default: System.out.println("Invalid option!");
