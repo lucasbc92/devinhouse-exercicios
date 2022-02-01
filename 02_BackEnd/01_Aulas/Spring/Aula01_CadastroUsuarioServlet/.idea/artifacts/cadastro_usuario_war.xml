@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="cadastro-usuario:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>cadastro-usuario</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="cadastro-usuario-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="cadastro-usuario:war exploded" />
+    </root>
+  </artifact>
+</component>
