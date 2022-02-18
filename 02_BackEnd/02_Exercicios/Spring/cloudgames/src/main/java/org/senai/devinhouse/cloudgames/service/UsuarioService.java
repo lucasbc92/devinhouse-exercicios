@@ -1,6 +1,8 @@
 package org.senai.devinhouse.cloudgames.service;
 
+import org.senai.devinhouse.cloudgames.model.Jogo;
 import org.senai.devinhouse.cloudgames.model.Usuario;
+import org.senai.devinhouse.cloudgames.repository.JogoRepository;
 import org.senai.devinhouse.cloudgames.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -21,6 +23,9 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+    @Autowired
+    private JogoRepository jogoRepository;
+
     public void inicial(Scanner scanner) {
         while(system) {
             System.out.println("Qual ação em usuario deseja executar");
@@ -31,6 +36,7 @@ public class UsuarioService {
             System.out.println("4 - Visualizar");
             System.out.println("5 - Buscar por nome");
             System.out.println("6 - Buscar por email");
+            System.out.println("7 - Adicionar jogo a usuário");
 
             int action = scanner.nextInt();
 
@@ -53,11 +59,45 @@ public class UsuarioService {
                 case 6:
                     buscarPorEmail(scanner);
                     break;
+                case 7:
+                    adicionarJogo(scanner);
+                    break;
                 default:
                     system = false;
                     break;
             }
         }
+    }
+
+    private void adicionarJogo(Scanner scanner) {
+        System.out.println("Informe o id do usuario");
+
+        Long idUsuario = scanner.nextLong();
+
+        Optional<Usuario> usuarioOptional = usuarioRepository.findById(idUsuario);
+
+        // early return
+        if(usuarioOptional.isEmpty()) {
+            System.out.println("O id informado é inválido");
+            return;
+        }
+
+        System.out.println("Informe o id do jogo");
+
+        Long idJogo = scanner.nextLong();
+
+        Optional<Jogo> jogoOptional = jogoRepository.findById(idJogo);
+
+        // early return
+        if(jogoOptional.isEmpty()) {
+            System.out.println("O id informado é inválido");
+            return;
+        }
+
+        Usuario usuario = usuarioOptional.get();
+        usuario.adicionarJogo(jogoOptional.get());
+
+        usuarioRepository.save(usuario);
     }
 
     private void buscarPorNome(Scanner scanner) {

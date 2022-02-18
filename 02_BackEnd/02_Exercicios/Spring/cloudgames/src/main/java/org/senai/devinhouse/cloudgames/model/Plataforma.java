@@ -1,7 +1,7 @@
 package org.senai.devinhouse.cloudgames.model;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 public class Plataforma {
@@ -12,8 +12,8 @@ public class Plataforma {
 
     private String nome;
 
-    @OneToMany(mappedBy = "plataforma")
-    private Set<JogoPlataforma> jogos;
+    @OneToMany(mappedBy = "plataforma", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<JogoPlataforma> jogos;
 
     public Long getId() {
         return id;
@@ -31,11 +31,11 @@ public class Plataforma {
         this.nome = nome;
     }
 
-    public Set<JogoPlataforma> getJogos() {
+    public List<JogoPlataforma> getJogos() {
         return jogos;
     }
 
-    public void setJogos(Set<JogoPlataforma> jogos) {
+    public void setJogos(List<JogoPlataforma> jogos) {
         this.jogos = jogos;
     }
 

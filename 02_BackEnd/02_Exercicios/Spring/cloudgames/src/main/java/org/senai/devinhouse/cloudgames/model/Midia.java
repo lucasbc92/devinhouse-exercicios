@@ -11,7 +11,8 @@ public class Midia {
 
     private String url;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE})
+    // ao colocar tipo PERSIST, dá esse erro: org.hibernate.PersistentObjectException: detached entity passed to persist: org.senai.devinhouse.cloudgames.model.Jogo
     @JoinColumn(name = "id_jogo", referencedColumnName = "id")
     private Jogo jogo;
 
@@ -44,7 +45,7 @@ public class Midia {
         return "Midia{" +
                 "id=" + id +
                 ", url='" + url + '\'' +
-                ", jogo=" + jogo +
+                //", jogo=" + jogo +
                 '}';
     }
 }

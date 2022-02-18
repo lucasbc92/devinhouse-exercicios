@@ -1,8 +1,8 @@
 package org.senai.devinhouse.cloudgames.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 public class Jogo {
@@ -13,14 +13,17 @@ public class Jogo {
 
     private String nome;
 
-    @OneToMany(mappedBy = "jogo")
-    private List<Midia> midias;
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "jogo", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    private Midia capa;
 
     @Enumerated(value = EnumType.STRING)
     private Genero genero;
 
-    @OneToMany(mappedBy = "jogo")
-    private Set<JogoPlataforma> plataformas;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "jogo", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<JogoPlataforma> plataformas;
+
+    @ManyToMany(mappedBy = "jogos")
+    private List<Usuario> usuarios;
 
     public Long getId() {
         return id;
@@ -38,12 +41,12 @@ public class Jogo {
         this.nome = nome;
     }
 
-    public List<Midia> getMidias() {
-        return midias;
+    public Midia getCapa() {
+        return capa;
     }
 
-    public void setMidias(List<Midia> midias) {
-        this.midias = midias;
+    public void setCapa(Midia capa) {
+        this.capa = capa;
     }
 
     public Genero getGenero() {
@@ -54,11 +57,11 @@ public class Jogo {
         this.genero = genero;
     }
 
-    public Set<JogoPlataforma> getPlataformas() {
+    public List<JogoPlataforma> getPlataformas() {
         return plataformas;
     }
 
-    public void setPlataformas(Set<JogoPlataforma> plataformas) {
+    public void setPlataformas(List<JogoPlataforma> plataformas) {
         this.plataformas = plataformas;
     }
 
@@ -67,9 +70,9 @@ public class Jogo {
         return "Jogo{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
-                //", midias=" + midias +
+                ", capa=" + capa +
                 ", genero=" + genero +
-                //", plataformas=" + plataformas +
+                ", plataformas=" + plataformas +
                 '}';
     }
 }

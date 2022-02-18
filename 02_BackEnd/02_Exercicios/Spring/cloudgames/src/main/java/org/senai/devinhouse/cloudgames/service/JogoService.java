@@ -1,10 +1,9 @@
 package org.senai.devinhouse.cloudgames.service;
 
-import org.senai.devinhouse.cloudgames.model.Genero;
-import org.senai.devinhouse.cloudgames.model.Jogo;
-import org.senai.devinhouse.cloudgames.model.Usuario;
+import org.senai.devinhouse.cloudgames.model.*;
+import org.senai.devinhouse.cloudgames.repository.JogoPlataformaRepository;
 import org.senai.devinhouse.cloudgames.repository.JogoRepository;
-import org.senai.devinhouse.cloudgames.repository.UsuarioRepository;
+import org.senai.devinhouse.cloudgames.repository.PlataformaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -24,6 +23,12 @@ public class JogoService {
     @Autowired
     private JogoRepository jogoRepository;
 
+    @Autowired
+    private PlataformaRepository plataformaRepository;
+
+    @Autowired
+    private JogoPlataformaRepository jogoPlataformaRepository;
+
     public void inicial(Scanner scanner) {
         while(system) {
             System.out.println("Qual ação em jogo deseja executar");
@@ -33,6 +38,7 @@ public class JogoService {
             System.out.println("3 - Deletar");
             System.out.println("4 - Visualizar");
             System.out.println("5 - Buscar por genero");
+            System.out.println("6 - Adicionar plataforma a jogo");
 
             int action = scanner.nextInt();
 
@@ -52,6 +58,9 @@ public class JogoService {
                 case 5:
                     buscarPorGenero(scanner);
                     break;
+                case 6:
+                    adicionarPlataforma(scanner);
+                    break;
                 default:
                     system = false;
                     break;
@@ -59,14 +68,55 @@ public class JogoService {
         }
     }
 
-    private void buscarPorGenero(Scanner scanner) {
-        System.out.println("Digite o genero que deseja pesquisar:");
-        try {
-            List<Jogo> jogos = jogoRepository.findByGenero(Genero.valueOf(scanner.next().toUpperCase(Locale.ROOT)).name());
-            jogos.forEach(System.out::println);
-        } catch(Exception e){
-            System.out.println("Genero inválido");
+    private void adicionarPlataforma(Scanner scanner) {
+        System.out.println("Informe o id do jogo");
+
+        Long idJogo = scanner.nextLong();
+
+        Optional<Jogo> jogoOptional = jogoRepository.findById(idJogo);
+
+        // early return
+        if(jogoOptional.isEmpty()) {
+            System.out.println("O id informado é inválido");
+            return;
         }
+
+        System.out.println("Informe o id da plataforma");
+
+        Long idPlataforma = scanner.nextLong();
+
+        Optional<Plataforma> plataformaOptional = plataformaRepository.findById(idPlataforma);
+
+        // early return
+        if(plataformaOptional.isEmpty()) {
+            System.out.println("O id informado é inválido");
+            return;
+        }
+
+        Jogo jogo = jogoOptional.get();
+        Plataforma plataforma = plataformaOptional.get();
+
+        LocalDate dataLancamento;
+
+        scanner.nextLine();
+        try {
+            System.out.println("Informe a data de lançamento no formato dd/mm/yyyy:");
+            String dateString = scanner.nextLine();
+            String[] dateStringSplit = dateString.split("/");
+            dataLancamento = LocalDate.of(
+                    Integer.parseInt(dateStringSplit[2]),
+                    Integer.parseInt(dateStringSplit[1]),
+                    Integer.parseInt(dateStringSplit[0])
+            );
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Data no formato incorreto.");
+            return;
+        }
+
+        JogoPlataforma jogoPlataforma = new JogoPlataforma(jogo, plataforma);
+        jogoPlataforma.setDataLancamento(dataLancamento);
+
+        jogoPlataformaRepository.save(jogoPlataforma);
     }
 
     private void atualizar(Scanner scanner) {
@@ -99,10 +149,12 @@ public class JogoService {
         int pagina = scanner.nextInt();
 
         PageRequest pageRequest = PageRequest.of(pagina-1, 5, Sort.by("nome"));
-        Page<Jogo> resultado = jogoRepository.findAll(pageRequest);
-        System.out.println("Total de elementos: " + resultado.getTotalElements());
-        System.out.println("Total de páginas: " + resultado.getTotalPages());
-        resultado.get().forEach(System.out::println);
+//        Page<Jogo> resultado = jogoRepository.search(pageRequest);
+//        System.out.println("Total de elementos: " + resultado.getTotalElements());
+//        System.out.println("Total de páginas: " + resultado.getTotalPages());
+//        resultado.get().forEach(System.out::println);
+        List<Jogo> jogos = jogoRepository.findAllWithCapaAndPlataformas();
+        jogos.forEach(System.out::println);
     }
 
     private void salvar(Scanner scanner) {
@@ -124,5 +176,15 @@ public class JogoService {
         }
 
         jogoRepository.save(jogo);
+    }
+
+    private void buscarPorGenero(Scanner scanner) {
+        System.out.println("Digite o genero que deseja pesquisar:");
+        try {
+            List<Jogo> jogos = jogoRepository.findByGenero(Genero.valueOf(scanner.next().toUpperCase(Locale.ROOT)));
+            jogos.forEach(System.out::println);
+        } catch(Exception e){
+            System.out.println("Genero inválido");
+        }
     }
 }

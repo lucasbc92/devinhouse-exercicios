@@ -7,5 +7,5 @@ public enum Genero {
     HORROR,
     INFANTIL,
     RPG,
-    SIMULACAO;
+    SIMULACAO
 }

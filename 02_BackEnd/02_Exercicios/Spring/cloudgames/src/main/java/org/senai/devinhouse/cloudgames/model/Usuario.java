@@ -36,7 +36,7 @@ public class Usuario {
     @Column(nullable = false)
     private String rg;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
             name = "biblioteca",
             joinColumns = @JoinColumn(name = "id_usuario", referencedColumnName = "id"),
@@ -106,6 +106,10 @@ public class Usuario {
 
     public void setJogos(List<Jogo> jogos) {
         this.jogos = jogos;
+    }
+
+    public void adicionarJogo(Jogo jogo){
+        jogos.add(jogo);
     }
 
     @Override
