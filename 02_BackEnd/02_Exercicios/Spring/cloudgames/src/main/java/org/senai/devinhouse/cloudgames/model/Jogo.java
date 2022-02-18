@@ -75,4 +75,14 @@ public class Jogo {
                 ", plataformas=" + plataformas +
                 '}';
     }
+
+    public String toStringLazyFriendly() {
+        return "Jogo{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                //", capa=" + capa +
+                ", genero=" + genero +
+                //", plataformas=" + plataformas +
+                '}';
+    }
 }

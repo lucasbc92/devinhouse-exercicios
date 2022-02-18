@@ -114,6 +114,11 @@ public class Usuario {
 
     @Override
     public String toString() {
+        String jogosStr = "[";
+        for(Jogo jogo: jogos){
+            jogosStr += jogo.toStringLazyFriendly() + ", ";
+        }
+        jogosStr += "]";
         return "Usuario{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
@@ -122,7 +127,7 @@ public class Usuario {
                 ", dataNascimento=" + dataNascimento +
                 ", cpf='" + cpf + '\'' +
                 ", rg='" + rg + '\'' +
-                ", jogos=" + jogos +
+                ", jogos=" + jogosStr +
                 '}';
     }
 }

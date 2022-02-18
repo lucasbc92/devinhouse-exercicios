@@ -4,10 +4,12 @@ import org.senai.devinhouse.cloudgames.model.*;
 import org.senai.devinhouse.cloudgames.repository.JogoPlataformaRepository;
 import org.senai.devinhouse.cloudgames.repository.JogoRepository;
 import org.senai.devinhouse.cloudgames.repository.PlataformaRepository;
+import org.senai.devinhouse.cloudgames.repository.SpecificationsJogo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -39,6 +41,7 @@ public class JogoService {
             System.out.println("4 - Visualizar");
             System.out.println("5 - Buscar por genero");
             System.out.println("6 - Adicionar plataforma a jogo");
+            System.out.println("7 - Busca dinamica");
 
             int action = scanner.nextInt();
 
@@ -61,11 +64,45 @@ public class JogoService {
                 case 6:
                     adicionarPlataforma(scanner);
                     break;
+                case 7:
+                    buscaDinamica(scanner);
+                    break;
                 default:
                     system = false;
                     break;
             }
         }
+    }
+
+    private void buscaDinamica(Scanner scanner) {
+        scanner.nextLine();
+        System.out.println("Informe o nome");
+        String nome = scanner.nextLine();
+        if(nome.equals("NULL")) {
+            nome = null;
+        }
+
+        Genero genero = null;
+
+        try{
+            System.out.println("Infome o genero");
+            String generoStr = scanner.next();
+            if(generoStr.equals("NULL")) {
+                genero = null;
+            }
+            genero = Genero.valueOf(generoStr.toUpperCase(Locale.ROOT));
+        } catch(Exception e){
+            genero = null;
+        }
+
+        List<Jogo> jogos = jogoRepository.findAll(Specification.where(
+                SpecificationsJogo.nome(nome)
+                        .or(SpecificationsJogo.genero(genero))
+        ));
+
+        jogos.forEach(jogo -> {
+            System.out.println(jogo.toStringLazyFriendly());
+        });
     }
 
     private void adicionarPlataforma(Scanner scanner) {
