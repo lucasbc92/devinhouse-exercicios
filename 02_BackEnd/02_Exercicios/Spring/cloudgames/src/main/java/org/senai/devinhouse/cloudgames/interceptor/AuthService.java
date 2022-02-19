@@ -26,8 +26,8 @@ public class AuthService {
         String[] split = credencials.split(":");
 
         String email = split[0];
-        String password = split[1];
+        String senha = split[1];
 
-        return usuarioRepository.findFirstByEmailAndPassword(email, password);
+        return usuarioRepository.findFirstByEmailAndSenha(email, senha);
     }
 }

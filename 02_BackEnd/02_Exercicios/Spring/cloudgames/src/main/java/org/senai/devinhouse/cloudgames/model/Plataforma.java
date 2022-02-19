@@ -31,20 +31,20 @@ public class Plataforma {
         this.nome = nome;
     }
 
-    public List<JogoPlataforma> getJogos() {
-        return jogos;
-    }
+//    public List<JogoPlataforma> getJogos() {
+//        return jogos;
+//    }
+//
+//    public void setJogos(List<JogoPlataforma> jogos) {
+//        this.jogos = jogos;
+//    }
 
-    public void setJogos(List<JogoPlataforma> jogos) {
-        this.jogos = jogos;
-    }
-
-    @Override
-    public String toString() {
-        return "Plataforma{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                //", jogos=" + jogos +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Plataforma{" +
+//                "id=" + id +
+//                ", nome='" + nome + '\'' +
+//                //", jogos=" + jogos +
+//                '}';
+//    }
 }

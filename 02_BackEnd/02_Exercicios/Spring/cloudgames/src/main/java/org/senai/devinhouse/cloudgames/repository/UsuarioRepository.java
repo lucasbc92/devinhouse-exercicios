@@ -20,6 +20,6 @@ public interface UsuarioRepository extends PagingAndSortingRepository<Usuario, L
     @Query(value = "SELECT * FROM lista2.usuario u WHERE u.nome ILIKE %:str%", nativeQuery = true)
     List<Usuario> findByNomeContaining(String str);
 
-    Usuario findFirstByEmailAndPassword(String email, String password);
+    Usuario findFirstByEmailAndSenha(String email, String senha);
 
 }
