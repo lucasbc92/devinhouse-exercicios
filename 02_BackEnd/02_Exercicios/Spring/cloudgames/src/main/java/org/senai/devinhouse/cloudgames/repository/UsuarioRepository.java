@@ -9,6 +9,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface UsuarioRepository extends PagingAndSortingRepository<Usuario, Long> {
@@ -18,5 +19,7 @@ public interface UsuarioRepository extends PagingAndSortingRepository<Usuario, L
 
     @Query(value = "SELECT * FROM lista2.usuario u WHERE u.nome ILIKE %:str%", nativeQuery = true)
     List<Usuario> findByNomeContaining(String str);
+
+    Usuario findFirstByEmailAndPassword(String email, String password);
 
 }

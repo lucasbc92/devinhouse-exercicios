@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Scanner;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "org.senai.devinhouse.cloudgames")
 public class CloudgamesApplication implements CommandLineRunner {
 
     private final UsuarioService usuarioService;
