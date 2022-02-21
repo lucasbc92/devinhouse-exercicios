@@ -1,4 +1,6 @@
-package org.senai.devinhouse.cloudgames.model;
+package org.senai.devinhouse.semana10.cloudgames.model;
+
+import org.senai.devinhouse.semana10.cloudgames.parameter.UsuarioPostParameter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -7,12 +9,6 @@ import java.util.List;
 
 @Entity
 public class Usuario {
-    /*
-    * Crie uma entidade chamada Usuario com os seguintes atributos:
-    * id, nome, login, senha, email, data de nascimento, cpf e rg.
-    * Realize o mapeamento desta entidade de acordo com as colunas e dados do banco.
-    */
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usuario_ger")
     @SequenceGenerator(name = "usuario_ger", sequenceName = "usuario_seq")
@@ -22,10 +18,12 @@ public class Usuario {
     private String nome;
 
     @Column(nullable = false)
-    private String senha;
+    private String email;
+
+    private String login;
 
     @Column(nullable = false)
-    private String email;
+    private String senha;
 
     @Column(name = "dt_nascimento", nullable = false)
     private LocalDate dataNascimento;
@@ -36,16 +34,38 @@ public class Usuario {
     @Column(nullable = false)
     private String rg;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "biblioteca",
             joinColumns = @JoinColumn(name = "id_usuario", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "id_jogo", referencedColumnName = "id")
     )
-    private List<Jogo> jogos = new ArrayList<>();
+    private List<Jogo> biblioteca = new ArrayList<>();
+
+    public Usuario() {
+
+    }
+
+    public Usuario(UsuarioPostParameter parameter) throws Exception{
+            this.id = parameter.getId();
+            this.nome = parameter.getNome();
+            this.email = parameter.getEmail();
+            this.login = parameter.getLogin();
+            this.senha = parameter.getSenha();
+            this.cpf = parameter.getCpf();
+            this.rg = parameter.getRg();
+            // a data vai vir no formato dd/mm/yyyy
+            String[] dataSplit = parameter.getDataNascimento().split("/");
+            LocalDate dataNascimento = LocalDate.of(
+                    Integer.parseInt(dataSplit[2]),
+                    Integer.parseInt(dataSplit[1]),
+                    Integer.parseInt(dataSplit[0])
+            );
+            this.dataNascimento = dataNascimento;
+    }
 
     public void adicionarJogo(Jogo jogo){
-        jogos.add(jogo);
+        biblioteca.add(jogo);
     }
 
     public Long getId() {
@@ -64,20 +84,28 @@ public class Usuario {
         this.nome = nome;
     }
 
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public LocalDate getDataNascimento() {
@@ -104,30 +132,11 @@ public class Usuario {
         this.rg = rg;
     }
 
-    public List<Jogo> getJogos() {
-        return jogos;
+    public List<Jogo> getBiblioteca() {
+        return biblioteca;
     }
 
-    public void setJogos(List<Jogo> jogos) {
-        this.jogos = jogos;
-    }
-
-    @Override
-    public String toString() {
-        String jogosStr = "[";
-        for(Jogo jogo: jogos){
-            jogosStr += jogo.toStringLazyFriendly() + ", ";
-        }
-        jogosStr += "]";
-        return "Usuario{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", senha='" + senha + '\'' +
-                ", email='" + email + '\'' +
-                ", dataNascimento=" + dataNascimento +
-                ", cpf='" + cpf + '\'' +
-                ", rg='" + rg + '\'' +
-                ", jogos=" + jogosStr +
-                '}';
+    public void setBiblioteca(List<Jogo> biblioteca) {
+        this.biblioteca = biblioteca;
     }
 }
